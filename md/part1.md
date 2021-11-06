@@ -1,4 +1,4 @@
-This is the first of several posts exploring the how git works under the hood.
+This is the first of several posts exploring how git works under the hood.
 While lots of programmers are familiar with *using* git, I wanted to do a deep dive into how git is implemented.
 git employs many clever ideas to optimize common version control operations.
 
@@ -824,7 +824,7 @@ Now, since we will be comparing the entire trees corresponding to the two commit
 Again, we can skip the entire tree if the hashes are the same.
 And either tree object might not exist, in which case we treat it as any empty tree.
 
-Since trees list their entries in name order, we can merge these two sorted slices to process all entries in both tries in order and find all entries that exist in both trees.
+Since trees list their entries in name order, we can merge these two sorted slices to process all entries in both trees in order and find all entries that exist in both trees.
 Note that the same filename might correspond to a file in one tree and a directory in the other, in which case we treat it as though the file were deleted and the directory added.
 ```rust
 use std::path::PathBuf;
