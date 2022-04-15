@@ -728,6 +728,8 @@ cargo add sha-1
 
 Then we can modify our `read_object()` function to compare the hash of an object's contents against the hash it was supposed to have:
 ```rust
+use sha1::{Digest, Sha1};
+
 fn read_object(hash: Hash) -> io::Result<Vec<u8>> {
   // ...
   // The entire uncompressed contents of the object, including the header
